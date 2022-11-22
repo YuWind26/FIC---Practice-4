@@ -61,7 +61,7 @@ class LtfmSlidingFormView extends StatefulWidget {
                         onChanged: (value) {},
                       ),
                       QMemoField(
-                        label: "Leave Date",
+                        label: "Reason",
                         onChanged: (value) {},
                       ),
                       const Divider(),
