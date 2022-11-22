@@ -16,33 +16,57 @@ class LtsmEnabledOrDisabledView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: const [
-              /*
-              ? Buat variabel enabled di dalam State/Controller
-              ! bool enabled = false;
+          child: Center(
+            child: Column(
+              children: [
+                /*
+                ? Buat variabel enabled di dalam State/Controller
+                ! bool enabled = false;
 
-              ? Tambahkan widget ini di dalam Column:
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: const Text("Add"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      controller.enabled ? Colors.orange : Colors.grey,
+                ? Tambahkan widget ini di dalam Column:
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text("Add"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        controller.enabled ? Colors.orange : Colors.grey,
+                  ),
+                  onPressed: () {
+                    if(controller.enabled==false) return;
+                  },
                 ),
-                onPressed: () {
-                  if(controller.enabled==false) return;
-                },
-              ),
 
-              ? Buat button lainnya, dan tambahkan kode ini di dalam event onPressed()
-              /*
-              controller.enabled = controller.enabled!;
-              controller.setState((){});
-              */
-                
-              */
-            ],
+                ? Buat button lainnya, dan tambahkan kode ini di dalam event onPressed()
+                /*
+                controller.enabled = controller.enabled!;
+                controller.setState((){});
+                */
+                  
+                */
+
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text("Add"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        controller.enabled ? Colors.orange : Colors.grey,
+                  ),
+                  onPressed: () {
+                    if (controller.enabled == false) return;
+                  },
+                ),
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text("Add"),
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  onPressed: () {
+                    controller.enabled = !controller.enabled;
+                    controller.setState(() {});
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

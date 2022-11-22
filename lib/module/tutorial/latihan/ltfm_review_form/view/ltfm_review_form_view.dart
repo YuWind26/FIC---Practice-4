@@ -29,12 +29,39 @@ class LtfmReviewFormView extends StatefulWidget {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: ListBody(
-                            children: const <Widget>[
+                            children: <Widget>[
                               //! 6. Pindahkan textarea review, ratingbar, dan tombol review
                               //!    yang berada di bawah ke dalam sini (di dalam children)
                               //! 7. Test fitur ini dengan klik tombol Rate di pojok kanan atas
                               //! 8. Jika popup tertutup setelah tombol review di klik,
                               //!    Tasks ini selesai
+                              QMemoField(
+                                label: "Review",
+                                onChanged: (value) {},
+                              ),
+                              const SizedBox(
+                                height: 30.0,
+                              ),
+                              RatingBar.builder(
+                                initialRating: 2.0,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 28.0,
+                                itemBuilder: (context, _) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {},
+                              ),
+                              ElevatedButton.icon(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.reviews),
+                                label: const Text("Review"),
+                              )
                             ],
                           ),
                         ),

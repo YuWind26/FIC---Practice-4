@@ -68,7 +68,7 @@ class LtfmFilterDialogView extends StatefulWidget {
                       icon: const Icon(Icons.tune),
                       label: const Text("Filter"),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueGrey,
+                        backgroundColor: Colors.green,
                       ),
                       onPressed: () async {
                         //! 1. Tampilkan dialog, gunakan kode ini:
@@ -103,6 +103,40 @@ class LtfmFilterDialogView extends StatefulWidget {
                         //! Tambahkan field2 ini:
                         //? datepicker dengan label "from"
                         //? datepicker dengan label "to"
+                        await showDialog<void>(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Filter'),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    QDatePicker(
+                                      label: "From",
+                                      onChanged: (value) {},
+                                    ),
+                                    QDatePicker(
+                                      label: "To",
+                                      onChanged: (value) {},
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blueGrey,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text("Filter"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       },
                     ),
                   ),

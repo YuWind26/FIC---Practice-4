@@ -20,7 +20,7 @@ class LtfmProductFormView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
@@ -68,6 +68,72 @@ class LtfmProductFormView extends StatefulWidget {
                 onChanged: (value, label) {},
               ),
              */
+
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: "Product Name",
+                        onChanged: (value) {},
+                        validator: Validator.required,
+                        value: "Product Name",
+                        hint: "Your Product Name",
+                      ),
+                      QNumberField(
+                        label: "Price",
+                        value: "23",
+                        validator: Validator.required,
+                        onChanged: (value) {},
+                        hint: "Your Price",
+                      ),
+                      QMemoField(
+                        label: "Description",
+                        onChanged: (value) {},
+                        lines: 15,
+                        value: "Description",
+                        hint: "Your Description",
+                      ),
+                      QDropdownField(
+                        label: "Category",
+                        hint: "Your product category",
+                        validator: Validator.required,
+                        items: const [
+                          {
+                            "label": "Food",
+                            "value": 1,
+                          },
+                          {
+                            "label": "Drink",
+                            "value": 2,
+                          },
+                          {
+                            "label": "Main Course",
+                            "value": 3,
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                      QRadioField(
+                        label: "Status",
+                        validator: Validator.atLeastOneitem,
+                        items: const [
+                          {
+                            "label": "Published",
+                            "value": "published",
+                          },
+                          {
+                            "label": "Draft",
+                            "value": "draft",
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

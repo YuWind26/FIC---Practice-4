@@ -16,43 +16,60 @@ class LtsmFadeAnimationView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              //TODO: Buat variabel animate di dalam State/Controller
-              // bool animate = false;
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 100),
-                height: 100.0,
-                width: 100.0,
-                margin: const EdgeInsets.only(),
-                decoration: BoxDecoration(
-                  //TODO:
-                  //jika animate == true, atur opacity menjadi 0.5
-                  //jika animate == false, atur opacity menjadi 1.0
-                  color: Colors.red.withOpacity(1.0),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(
-                      16.0,
-                    ),
+          child: Center(
+            child: Column(
+              children: [
+                //TODO: Buat variabel animate di dalam State/Controller
+                // bool animate = false;
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 100),
+                  height: 100.0,
+                  width: 100.0,
+                  margin: const EdgeInsets.only(),
+                  decoration: controller.animate
+                      ? BoxDecoration(
+                          //TODO:
+                          //jika animate == true, atur opacity menjadi 0.5
+                          //jika animate == false, atur opacity menjadi 1.0
+                          color: Colors.red.withOpacity(0.5),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                        )
+                      : BoxDecoration(
+                          //TODO:
+                          //jika animate == true, atur opacity menjadi 0.5
+                          //jika animate == false, atur opacity menjadi 1.0
+                          color: Colors.red.withOpacity(1.0),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                        ),
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                //TODO:
+                //di dalam event onPressed(),
+                //atur animate = true, jika nilai animate adalah false
+                //atur animate = false, jika nilai animate adalah true
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.animation),
+                  label: const Text("Animate"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
                   ),
+                  onPressed: () {
+                    controller.animate = !controller.animate;
+                    controller.setState(() {});
+                  },
                 ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              //TODO:
-              //di dalam event onPressed(),
-              //atur animate = true, jika nilai animate adalah false
-              //atur animate = false, jika nilai animate adalah true
-              ElevatedButton.icon(
-                icon: const Icon(Icons.animation),
-                label: const Text("Animate"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                ),
-                onPressed: () {},
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

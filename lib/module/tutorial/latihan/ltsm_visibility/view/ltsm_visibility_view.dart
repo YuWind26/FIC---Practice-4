@@ -16,28 +16,57 @@ class LtsmVisibilityView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: const [
-              /*
-              ? Buat variabel visible di dalam State/Controller
-              ! bool visible = false;
+          child: Center(
+            child: Column(
+              children: [
+                /*
+                ? Buat variabel visible di dalam State/Controller
+                ! bool visible = false;
 
-              ? Tambahkan statement ini di dalam Column:
-              if(controller.loading)
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  color: Colors.red,
+                ? Tambahkan statement ini di dalam Column:
+                if(controller.loading)
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    color: Colors.red,
+                  ),
+                  
+
+                ? Buat sebuah button, dan tambahkan kode ini di dalam event onPressed()
+                /*
+                controller.visible = controller.visible!;
+                controller.setState((){});
+                */
+                  
+                */
+                Text(
+                  "Visible : ${controller.visible}",
+                  style: const TextStyle(fontSize: 30.0),
                 ),
-
-              ? Buat sebuah button, dan tambahkan kode ini di dalam event onPressed()
-              /*
-              controller.visible = controller.visible!;
-              controller.setState((){});
-              */
-                
-              */
-            ],
+                const SizedBox(
+                  height: 20.0,
+                ),
+                if (controller.visible)
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    color: Colors.red,
+                  ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    controller.visible = !controller.visible;
+                    controller.setState(() {});
+                  },
+                  icon: const Icon(Icons.visibility_rounded),
+                  label: const Text("Show/Hide"),
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.green)),
+                )
+              ],
+            ),
           ),
         ),
       ),

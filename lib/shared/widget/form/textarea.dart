@@ -4,6 +4,7 @@ class QMemoField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
+  final int? lines;
   final String? Function(String?)? validator;
   final Function(String) onChanged;
 
@@ -13,6 +14,7 @@ class QMemoField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
+    this.lines,
     required this.onChanged,
   }) : super(key: key);
 
@@ -31,8 +33,8 @@ class _QMemoFieldState extends State<QMemoField> {
     return TextFormField(
       initialValue: widget.value,
       validator: widget.validator,
-      maxLength: 200,
-      maxLines: 6,
+      // maxLength: 200,
+      maxLines: widget.lines,
       decoration: InputDecoration(
         labelText: widget.label,
         labelStyle: const TextStyle(
